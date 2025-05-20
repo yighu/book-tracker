@@ -1,0 +1,9 @@
+# .gitignore
+venv/
+__pycache__/
+*.pyc
+books.db
+.DS_Store
+*.sqlite3
+instance/
+.env

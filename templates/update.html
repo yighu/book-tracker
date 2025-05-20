@@ -1,0 +1,19 @@
+# templates/update.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Book</title>
+</head>
+<body>
+    <h1>Edit Book</h1>
+    <form method="post">
+        Title: <input type="text" name="title" value="{{ book.title }}"><br>
+        Author: <input type="text" name="author" value="{{ book.author }}"><br>
+        Year: <input type="number" name="year" value="{{ book.year }}"><br>
+        Description:<br><textarea name="description">{{ book.description }}</textarea><br>
+        <button type="submit">Update</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to list</a>
+</body>
+</html>
+

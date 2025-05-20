@@ -1,0 +1,33 @@
+# templates/index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Book List</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Search by title or author" value="{{ keyword }}">
+        <button type="submit">Search</button>
+        <a href="{{ url_for('create') }}">Add New Book</a>
+    </form>
+    <ul>
+        {% for book in books.items %}
+            <li>
+                <strong>{{ book.title }}</strong> by {{ book.author }} ({{ book.year }})<br>
+                {{ book.description }}<br>
+                <a href="{{ url_for('update', id=book.id) }}">Edit</a>
+                <form method="post" action="{{ url_for('delete', id=book.id) }}" style="display:inline">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <div>
+        {% if books.has_prev %}<a href="?page={{ books.prev_num }}&q={{ keyword }}">Previous</a>{% endif %}
+        Page {{ books.page }} of {{ books.pages }}
+        {% if books.has_next %}<a href="?page={{ books.next_num }}&q={{ keyword }}">Next</a>{% endif %}
+    </div>
+</body>
+</html>
+

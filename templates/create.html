@@ -1,0 +1,19 @@
+# templates/create.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Book</title>
+</head>
+<body>
+    <h1>Add New Book</h1>
+    <form method="post">
+        Title: <input type="text" name="title"><br>
+        Author: <input type="text" name="author"><br>
+        Year: <input type="number" name="year"><br>
+        Description:<br><textarea name="description"></textarea><br>
+        <button type="submit">Create</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to list</a>
+</body>
+</html>
+
